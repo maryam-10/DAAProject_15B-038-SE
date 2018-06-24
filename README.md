@@ -1,5 +1,5 @@
 # DAAProject_15B-038-SE
-Printing Neatly
+# Printing Neatly
 The following program prints a paragraph neatly on a page. The paragraph consists of sequence of n words of length l1,l2,…,ln. The maximum line length is M(assume l1 <= M always). We want to print this paragraph neatly on a number of lines that hold a maximum of M characters each. Our criterion of "neatness" is as follows: lk
 
 If a given line contains words i through j, where i≤j , and we leave exactly one space between words, the number of extra space characters at the end of the line is (𝑀−𝑗+𝑖−)
