@@ -3,14 +3,16 @@ import math
 class Print_Neatly(object):
 
     def print_neatly(self, words, n, M):
-
+ # words = array of words
+ # M = maximun length of the line
+ # n = number of words
         minpenalty = [float('inf')]*(n+1)
         break_points = [None]*(n+1)
 
         minpenalty[0] = 0
 
         def compute_line_cost(extra_space, j, n):
-
+#three cases are described
             if extra_space < 0:
                 return float('inf')
             elif j == n and extra_space >= 0:
@@ -37,13 +39,14 @@ class Print_Neatly(object):
 
         minpenalty[0] = 0
 
-
+  #computing extra spaces for the words
         for i in range(1, n+1):
             extraspace[i][i] = M - len(words[i])
             for j in range(i+1, n+1):
 
                 extraspace[i][j] = extraspace[i][j-1] - len(words[j]) - 1
 
+  #computing the line cost
         for i in range(1, n+1):
             for j in range(1, n+1):
                 if extraspace[i][j] < 0:
@@ -53,6 +56,7 @@ class Print_Neatly(object):
                 else:
                     linecost[i][j] = (extraspace[i][j])**3
 
+  #computing the minimum cost of each line
         for j in range(1, n+1):
             for i in range(1, j+1):
                 cur_penalty = minpenalty[i-1] + linecost[i][j]
